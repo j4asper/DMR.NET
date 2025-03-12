@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Authors>Jasper Onsberg Christiansen</Authors>
+        <Description>The DMR.NET.Entities package provides the data models used by the DMR.NET project. It includes all the necessary entities that represent the structure of the DMR data.</Description>
+        <RepositoryUrl>https://github.com/j4asper/DMR.NET</RepositoryUrl>
+        <PackageId>DMR.NET.Entities</PackageId>
+        <Product>DMR.NET.Entities</Product>
+        <PackageProjectUrl>https://github.com/j4asper/DMR.NET</PackageProjectUrl>
+        <RootNamespace>DMR.NET.Entities</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+    
+</Project>

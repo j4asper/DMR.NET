@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Authors>Jasper Onsberg Christiansen</Authors>
+        <Description>The DMR.NET package provides the logic to download the latest DMR database from an FTP server and parse it into usable models. It includes functionality for interacting with the DMR database, enabling easy retrieval and processing of DMR data.</Description>
+        <RepositoryUrl>https://github.com/j4asper/DMR.NET</RepositoryUrl>
+        <PackageId>DMR.NET</PackageId>
+        <Product>DMR.NET</Product>
+        <PackageProjectUrl>https://github.com/j4asper/DMR.NET</PackageProjectUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DMR.NET.Entities\DMR.NET.Entities.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentFTP" Version="52.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.2" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+    
+</Project>
