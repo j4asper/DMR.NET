@@ -32,7 +32,11 @@ Credentials can be [found here](https://motorst.dk/erhverv/motorregistret-for-vi
 }
 ```
 
-*Example project is on the way.*
+## Example Usage
+
+### [DMR2Mongo](https://github.com/j4asper/DMR2Mongo)
+
+DMR2Mongo is a simple service that checks for updates to the DMR database, downloads the latest available data, parses the objects, and stores them in a MongoDB database.
 
 ## Contributing and Limitations
 
