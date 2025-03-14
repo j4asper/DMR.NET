@@ -11,6 +11,7 @@ public class DmrFtpService : IDmrFtpService, IAsyncDisposable
     private readonly string _destinationPath;
     private readonly AsyncFtpClient _ftpClient;
     private readonly ILogger<DmrFtpService> _logger;
+    private readonly FtpConfig _ftpConfig = new() { SelfConnectMode = FtpSelfConnectMode.Always };
     
     public double DownloadProgress { get; private set; }
     
@@ -18,7 +19,7 @@ public class DmrFtpService : IDmrFtpService, IAsyncDisposable
     
     public DmrFtpService(string host, string username, string password, string sourcePath, string destinationPath, ILogger<DmrFtpService> logger)
     {
-        _ftpClient = new AsyncFtpClient(host, username, password);
+        _ftpClient = new AsyncFtpClient(host, username, password, config: _ftpConfig);
         _sourcePath = sourcePath;
         _destinationPath = destinationPath;
         _logger = logger;
