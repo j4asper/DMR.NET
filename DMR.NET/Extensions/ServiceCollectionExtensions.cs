@@ -1,4 +1,5 @@
-﻿using DMR.NET.Services;
+﻿using DMR.NET.Options;
+using DMR.NET.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DMR.NET.Extensions;
@@ -12,6 +13,10 @@ public static class ServiceCollectionExtensions
     /// <returns>The updated IServiceCollection with the added services.</returns>
     public static IServiceCollection AddDmrDotNetServices(this IServiceCollection services)
     {
+        services.AddOptionsWithValidateOnStart<DmrFtpOptions>()
+            .BindConfiguration(DmrFtpOptions.DmrFtp)
+            .ValidateDataAnnotations();
+        
         services
             .AddSingleton<IDmrFtpService, DmrFtpService>()
             .AddSingleton<IDmrDeserializerService, DmrDeserializerService>();
