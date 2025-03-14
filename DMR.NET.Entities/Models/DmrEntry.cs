@@ -26,10 +26,10 @@ public class DmrEntry
     
     [XmlElement("SynResultatStruktur")]
     public required StructuredInspectionResult StructuredInspectionResult { get; set; }
-    
+
     [XmlElement("LeasingGyldigFra")]
-    public required DateTime LeasingValidFrom { get; set; }
+    public required DateTime? LeasingValidFrom { get; set; }
     
     [XmlElement("LeasingGyldigTil")]
-    public required DateTime LeasingValidTo { get; set; }
+    public required DateTime? LeasingValidTo { get; set; }
 }
