@@ -9,9 +9,15 @@ public class StructuredVehicleEngine
     [XmlElement("KoeretoejDrivmiddelSamlingStruktur")]
     public required StructuredVehiclePowerSourceCollection StructuredVehiclePowerSourceCollection { get; set; }
     
+    /// <summary>
+    /// The number of cylinders in the vehicle's engine, which can affect its performance and fuel efficiency.
+    /// </summary>
     [XmlElement("KoeretoejMotorCylinderAntal")]
     public required int CylinderCount { get; set; }
-    
+
+    /// <summary>
+    /// The total distance the vehicle has traveled, measured in kilometers.
+    /// </summary>
     [XmlElement("KoeretoejMotorKilometerstand")]
     public required int Mileage { get; set; }
     
