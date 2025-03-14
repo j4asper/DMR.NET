@@ -121,7 +121,7 @@ public class StructuredVehicleDetails
     public required bool TrafficDamage { get; set; }
     
     [XmlElement("KoeretoejOplysningIbrugtagningDato")]
-    public required DateTime CommissioningDate { get; set; }
+    public required DateTime? CommissioningDate { get; set; }
     
     [XmlElement("KoeretoejOplysningOevrigtUdstyr")]
     public required string OtherEquipment { get; set; }
