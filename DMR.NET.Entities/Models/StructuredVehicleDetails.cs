@@ -252,6 +252,9 @@ public class StructuredVehicleDetails
     [XmlElement("KoeretoejOplysningKoeretoejstand")]
     public required VehicleCondition VehicleCondition { get; set; }
     
+    [XmlElement("KoeretoejMotorStruktur")]
+    public required StructuredVehicleEngine StructuredVehicleEngine { get; set; }
+    
     [XmlElement("KoeretoejNormStruktur")]
     public required StructuredVehicleEmission StructuredVehicleEmission { get; set; }
     
