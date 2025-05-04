@@ -73,7 +73,7 @@ public class DmrDeserializerService : IDmrDeserializerService
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Unable to deserialize Dmr entry.");
+                _logger.LogError(ex, "Unable to deserialize DMR entry. Skipping entry...");
             }
 
             if (entry == null)

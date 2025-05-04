@@ -13,7 +13,7 @@ public class StructuredVehicleEquipment
 [XmlRoot("KoeretoejUdstyrSamling")]
 public class VehicleEquipmentCollection
 {
-    public required IReadOnlyList<StructuredEquipment> StructuredEquipment { get; set; }
+    public required StructuredEquipment[] StructuredEquipment { get; set; }
 }
 
 [XmlRoot("KoeretoejUdstyrStruktur")]

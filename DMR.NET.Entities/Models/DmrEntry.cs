@@ -19,7 +19,7 @@ public class DmrEntry
     public required string RegistrationNumber { get; set; }
     
     [XmlElement("RegistreringNummerUdloebDato")]
-    public required DateTimeOffset? RegistrationNumberExpiration { get; set; }
+    public DateTimeOffset? RegistrationNumberExpiration { get; set; }
     
     [XmlElement("KoeretoejOplysningGrundStruktur")]
     public required StructuredVehicleDetails StructuredVehicleDetails { get; set; }
@@ -28,8 +28,8 @@ public class DmrEntry
     public required StructuredInspectionResult StructuredInspectionResult { get; set; }
 
     [XmlElement("LeasingGyldigFra")]
-    public required DateTime? LeasingValidFrom { get; set; }
+    public DateTime? LeasingValidFrom { get; set; }
     
     [XmlElement("LeasingGyldigTil")]
-    public required DateTime? LeasingValidTo { get; set; }
+    public DateTime? LeasingValidTo { get; set; }
 }
