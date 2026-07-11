@@ -13,13 +13,13 @@ public class StructuredVehicleEngine
     /// The number of cylinders in the vehicle's engine, which can affect its performance and fuel efficiency.
     /// </summary>
     [XmlElement("KoeretoejMotorCylinderAntal")]
-    public int? CylinderCount { get; set; }
+    public string? CylinderCount { get; set; }
 
     /// <summary>
     /// The total distance the vehicle has traveled, measured in kilometers.
     /// </summary>
     [XmlElement("KoeretoejMotorKilometerstand")]
-    public int? Mileage { get; set; }
+    public string? Mileage { get; set; }
     
     [XmlElement("KoeretoejMotorInnovativTeknik")]
     public bool? InnovativeTechnology { get; set; }
@@ -62,5 +62,5 @@ public class PropulsionPowerSourceType
 public class StructuredVehicleFuel
 {
     [XmlElement("KoeretoejMotorKmPerLiter")]
-    public required double KmPerLiter { get; set; }
+    public required string KmPerLiter { get; set; }
 }

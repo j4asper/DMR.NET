@@ -28,7 +28,7 @@ public class StructuredVehicleDetails
     /// The number of doors on the vehicle.
     /// </summary>
     [XmlElement("KoeretoejOplysningAntalDoere")]
-    public int? DoorCount { get; set; }
+    public string? DoorCount { get; set; }
 
     /// <summary>
     /// The location where the vehicle identification number (VIN) is stamped or located on the vehicle.
@@ -40,7 +40,7 @@ public class StructuredVehicleDetails
     /// The year of manufacture or model year of the vehicle.
     /// </summary>
     [XmlElement("KoeretoejOplysningModelAar")]
-    public int? ModelYear { get; set; }
+    public string? ModelYear { get; set; }
     
     /// <summary>
     /// The EU variant code of the vehicle, which represents the specific configuration or variant of the vehicle model in the European market.
@@ -70,7 +70,7 @@ public class StructuredVehicleDetails
     /// The maximum speed the vehicle can achieve, in kilometers per hour.
     /// </summary>
     [XmlElement("KoeretoejOplysningMaksimumHastighed")]
-    public int? TopSpeed { get; set; }
+    public string? TopSpeed { get; set; }
     
     // [XmlElement("KoeretoejOplysningVVaerdiMekanisk")]
     // public required double ??? { get; set; }
@@ -94,34 +94,34 @@ public class StructuredVehicleDetails
     /// The maximum allowed weight of the vehicle, including its cargo and any additional load.
     /// </summary>
     [XmlElement("KoeretoejOplysningTotalVaegt")]
-    public int? GrossWeight { get; set; }
+    public string? GrossWeight { get; set; }
     
     /// <summary>
     /// The weight of the vehicle in kilograms.
     /// </summary>
     [XmlElement("KoeretoejOplysningEgenVaegt")]
-    public int? Weight { get; set; }
+    public string? Weight { get; set; }
     
     /// <summary>
     /// The minimum curb weight of the vehicle, which is the weight of the vehicle with standard equipment, fluids, and a full tank of fuel, but without passengers or cargo.
     /// </summary>
     [XmlElement("KoeretoejOplysningKoereklarVaegtMinimum")]
-    public int? MinimumCurbWeight { get; set; }
+    public string? MinimumCurbWeight { get; set; }
 
     /// <summary>
     /// The maximum curb weight of the vehicle, which is the weight of the vehicle with standard equipment, fluids, and a full tank of fuel, but without passengers or cargo.
     /// </summary>
     [XmlElement("KoeretoejOplysningKoereklarVaegtMaksimum")]
-    public int? MaximumCurbWeight { get; set; }
+    public string? MaximumCurbWeight { get; set; }
 
     [XmlElement("KoeretoejOplysningTekniskTotalVaegt")]
-    public int? TechnicalGrossWeight { get; set; }
+    public string? TechnicalGrossWeight { get; set; }
     
     /// <summary>
     /// The number of axles on the vehicle. This refers to the total number of axles (front and rear) supporting the vehicle.
     /// </summary>
     [XmlElement("KoeretoejOplysningAkselAntal")]
-    public int? AxleCount { get; set; }
+    public string? AxleCount { get; set; }
 
     /// <summary>
     /// The driving axles of the vehicle, represented as a comma-separated string of axle numbers that provide power to the vehicle's wheels (e.g., "1,2" for a vehicle with two driving axles).
@@ -136,37 +136,37 @@ public class StructuredVehicleDetails
     /// The number of gears in the vehicle's transmission system.
     /// </summary>
     [XmlElement("KoeretoejOplysningAntalGear")]
-    public int? GearCount { get; set; }
+    public string? GearCount { get; set; }
 
     /// <summary>
     /// The total number of passengers the vehicle is designed to accommodate.
     /// </summary>
     [XmlElement("KoeretoejOplysningPassagerAntal")]
-    public int? PassengerCount { get; set; }
+    public string? PassengerCount { get; set; }
 
     /// <summary>
     /// The minimum number of seats in the vehicle, typically when the vehicle is configured with its most basic seating arrangement.
     /// </summary>
     [XmlElement("KoeretoejOplysningSiddepladserMinimum")]
-    public int? MinimumSeats { get; set; }
+    public string? MinimumSeats { get; set; }
 
     /// <summary>
     /// The maximum number of seats in the vehicle, typically when the vehicle is configured with its full seating arrangement.
     /// </summary>
     [XmlElement("KoeretoejOplysningSiddepladserMaksimum")]
-    public int? MaximumSeats { get; set; }
+    public string? MaximumSeats { get; set; }
 
     /// <summary>
     /// The minimum number of standing spots available in the vehicle, typically for vehicles designed to carry passengers standing (e.g., buses or trams).
     /// </summary>
     [XmlElement("KoeretoejOplysningStaapladserMinimum")]
-    public int? MinimumStandingSpots { get; set; }
+    public string? MinimumStandingSpots { get; set; }
 
     /// <summary>
     /// The maximum number of standing spots available in the vehicle, typically for vehicles designed to carry passengers standing (e.g., buses or trams).
     /// </summary>
     [XmlElement("KoeretoejOplysningStaapladserMaksimum")]
-    public int? MaximumStandingSpots { get; set; }
+    public string? MaximumStandingSpots { get; set; }
 
     /// <summary>
     /// Indicates whether the vehicle has the capability to tow a trailer or other vehicle.
@@ -178,13 +178,13 @@ public class StructuredVehicleDetails
     /// The maximum weight that the vehicle can tow without brakes, typically referring to the weight of a trailer or another vehicle.
     /// </summary>
     [XmlElement("KoeretoejOplysningTilkoblingsvaegtUdenBremser")]
-    public int? TowingWeightWithoutBrakes { get; set; }
+    public string? TowingWeightWithoutBrakes { get; set; }
 
     /// <summary>
     /// The maximum weight that the vehicle can tow with brakes, typically referring to the weight of a trailer or another vehicle that has its own braking system.
     /// </summary>
     [XmlElement("KoeretoejOplysningTilkoblingsvaegtMedBremser")]
-    public int? TowingWeightWithBrakes { get; set; }
+    public string? TowingWeightWithBrakes { get; set; }
     
     /// <summary>
     /// Indicates whether the vehicle has passed the NCAP (New Car Assessment Program) safety test.
@@ -238,13 +238,13 @@ public class StructuredVehicleDetails
     /// The width of the vehicle's front track, which is the distance between the left and right wheels on the front axle.
     /// </summary>
     [XmlElement("KoeretoejOplysningSporviddenForrest")]
-    public int? TrackWidthFront { get; set; }
+    public string? TrackWidthFront { get; set; }
 
     /// <summary>
     /// The width of the vehicle's rear track, which is the distance between the left and right wheels on the rear axle.
     /// </summary>
     [XmlElement("KoeretoejOplysningSporviddenBagest")]
-    public int? TrackWidthBack { get; set; }
+    public string? TrackWidthBack { get; set; }
     
     /// <summary>
     /// The current condition of the vehicle, indicating its state of wear or quality.
@@ -256,7 +256,7 @@ public class StructuredVehicleDetails
     public required StructuredVehicleEngine StructuredVehicleEngine { get; set; }
     
     [XmlElement("KoeretoejNormStruktur")]
-    public required StructuredVehicleEmission StructuredVehicleEmission { get; set; }
+    public StructuredVehicleEmission? StructuredVehicleEmission { get; set; }
     
     [XmlElement("KoeretoejBetegnelseStruktur")]
     public required StructuredVehicleDescription StructuredVehicleDescription { get; set; }
