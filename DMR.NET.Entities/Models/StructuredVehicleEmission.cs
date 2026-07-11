@@ -7,7 +7,7 @@ namespace DMR.NET.Entities.Models;
 public class StructuredVehicleEmission
 {
     [XmlElement("NormTypeStruktur")]
-    public required StructuredEmissionType StructuredEmissionType { get; set; }
+    public StructuredEmissionType? StructuredEmissionType { get; set; }
 }
 
 [XmlRoot("NormTypeStruktur")]
@@ -15,4 +15,7 @@ public class StructuredEmissionType
 {
     [XmlElement("NormTypeNummer")]
     public required EmissionStandard EmissionStandard { get; set; }
+    
+    [XmlElement("NormTypeNavn")]
+    public required string EmissionStandardName { get; set; }
 }
