@@ -12,6 +12,9 @@ public class DmrEntry
     [XmlElement("KoeretoejArtNummer")]
     public required VehicleType Type { get; set; }
     
+    [XmlElement("KoeretoejArtNavn")]
+    public required string TypeName { get; set; }
+    
     [XmlElement("KoeretoejAnvendelseStruktur")]
     public required StructuredVehicleUsage StructuredVehicleUsage { get; set; }
     
@@ -20,6 +23,9 @@ public class DmrEntry
     
     [XmlElement("RegistreringNummerUdloebDato")]
     public DateTimeOffset? RegistrationNumberExpiration { get; set; }
+    
+    [XmlElement("KoeretoejRegistreringStatus")]
+    public required string RegistrationStatus { get; set; }
     
     [XmlElement("KoeretoejOplysningGrundStruktur")]
     public required StructuredVehicleDetails StructuredVehicleDetails { get; set; }

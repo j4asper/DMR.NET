@@ -8,4 +8,7 @@ public class StructuredVehicleUsage
 {
     [XmlElement("KoeretoejAnvendelseNummer")]
     public required VehicleUsage Usage { get; set; }
+    
+    [XmlElement("KoeretoejAnvendelseNavn")]
+    public required string UsageName { get; set; }
 }
