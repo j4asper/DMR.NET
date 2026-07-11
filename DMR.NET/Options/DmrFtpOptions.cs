@@ -1,23 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace DMR.NET.Options;
 
-namespace DMR.NET.Options;
-
+/// <summary>
+/// The FTP values can be found here if they changed:
+/// https://motorst.dk/erhverv/motorregistret-for-virksomheder/faa-adgang-til-motorregistret/andre-adgange
+/// below "Statistikudtræk"
+/// </summary>
 public class DmrFtpOptions
 {
     public static readonly string DmrFtp = nameof(DmrFtp);
     
-    [Required]
-    public required string Host { get; set; }
-    
-    [Required]
-    public required string Username { get; set; }
-    
-    [Required]
-    public required string Password { get; set; }
-    
-    [Required]
-    public required string SourcePath { get; set; }
-    
-    [Required]
-    public required string DestinationPath { get; set; }
+    public string Host { get; set; } = "5.44.137.84";
+
+    public string Username { get; set; } = "dmr-ftp-user";
+
+    public string Password { get; set; } = "dmrpassword";
+
+    public string SourcePath { get; set; } = "/ESStatistikListeModtag/";
+
+    public string DestinationPath { get; set; } = "/";
+
+    public string InternalXmlFileName { get; set; } = "ESStatistikListeModtag.xml";
 }
