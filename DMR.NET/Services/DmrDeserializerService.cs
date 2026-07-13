@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Xml;
 using System.Xml.Serialization;
 using DMR.NET.Entities.Models;
+using DMR.NET.Models.Deserialization;
 using DMR.NET.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -57,7 +58,7 @@ public class DmrDeserializerService : IDmrDeserializerService
             };
         
             using var reader = XmlReader.Create(bufferedStream, settings);
-            var serializer = new XmlSerializer(typeof(DmrEntry));
+            var serializer = new XmlSerializer(typeof(XmlDmrEntry));
             
             while (reader.Read())
             {
@@ -67,7 +68,7 @@ public class DmrDeserializerService : IDmrDeserializerService
                 if (reader.NodeType != XmlNodeType.Element || reader.LocalName != "Statistik")
                     continue;
                 
-                var entry = (DmrEntry?)serializer.Deserialize(reader);
+                var entry = (XmlDmrEntry?)serializer.Deserialize(reader);
 
                 if (entry != null)
                 {

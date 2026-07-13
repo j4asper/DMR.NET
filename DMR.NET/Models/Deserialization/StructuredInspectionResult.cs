@@ -1,23 +1,23 @@
 ﻿using System.Xml.Serialization;
-using DMR.NET.Entities.Enums;
+using DMR.NET.Models.Deserialization.Enums;
 
-namespace DMR.NET.Entities.Models;
+namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("SynResultatStruktur")]
-public class StructuredInspectionResult
+internal class StructuredInspectionResult
 {
     [XmlElement("SynResultatSynsType")]
-    public required InspectionType InspectionType { get; set; }
+    internal required InspectionType InspectionType { get; set; }
     
     /// <summary>
     /// The date and time when the vehicle inspection was performed.
     /// </summary>
     [XmlElement("SynResultatSynsDato")]
-    public required DateTimeOffset InspectionDate { get; set; }
+    internal required DateTimeOffset InspectionDate { get; set; }
 
     /// <summary>
     /// The result of the vehicle's inspection, indicating whether it passed, failed, or was subject to specific conditions.
     /// </summary>
     [XmlElement("SynResultatSynsResultat")]
-    public required InspectionResult InspectionResult { get; set; }
+    internal required InspectionResult InspectionResult { get; set; }
 }

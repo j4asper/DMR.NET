@@ -1,0 +1,23 @@
+using System.Xml.Serialization;
+
+namespace DMR.NET.Models.Deserialization.Enums;
+
+public enum InspectionType
+{
+    Unknown,
+    
+    [XmlEnum("KontrolSyn")]
+    ControlInspection,
+
+    [XmlEnum("MOT")]
+    MOT,
+
+    [XmlEnum("PeriodiskSyn")]
+    PeriodicInspection,
+
+    [XmlEnum("RegistreringsSyn")]
+    RegistrationInspection,
+
+    [XmlEnum("RegistreringssynToldsyn")]
+    RegistrationInspectionCustomsInspection,
+}

@@ -1,8 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace DMR.NET.Entities.Enums;
+namespace DMR.NET.Models.Deserialization.Enums;
 
-public enum VehicleType
+internal enum VehicleType
 {
     Unknown,
     
