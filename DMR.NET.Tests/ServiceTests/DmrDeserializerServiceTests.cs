@@ -15,11 +15,11 @@ public class DmrDeserializerServiceTests
         this.output = output;
     }
 
-    [Fact]
+    [Fact(Skip = "Used for local testing")]
     public async Task DeserializeDmrEntriesAsync()
     {
         var ftpService = Substitute.For<IDmrFtpService>();
-        ftpService.GetLatestDmrDatabaseAsync(TestContext.Current.CancellationToken).ReturnsForAnyArgs("ESStatistikListeModtag-20260705-151908.zip");
+        ftpService.GetLatestDmrDatabaseAsync(TestContext.Current.CancellationToken).ReturnsForAnyArgs("ESStatistikListeModtag-20260830-172841.zip");
         
         var logger = Substitute.For<ILogger<DmrDeserializerService>>();
         var options = Microsoft.Extensions.Options.Options.Create(new DmrFtpOptions
