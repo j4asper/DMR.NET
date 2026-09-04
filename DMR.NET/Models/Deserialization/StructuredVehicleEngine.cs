@@ -1,66 +1,73 @@
-﻿using System.Xml.Serialization;
-using DMR.NET.Models.Deserialization.Enums;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("KoeretoejMotorStruktur")]
-internal class StructuredVehicleEngine
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredVehicleEngine
 {
     [XmlElement("KoeretoejDrivmiddelSamlingStruktur")]
-    internal required StructuredVehiclePowerSourceCollection StructuredVehiclePowerSourceCollection { get; set; }
+    public required StructuredVehiclePowerSourceCollection StructuredVehiclePowerSourceCollection { get; set; }
     
     /// <summary>
     /// The number of cylinders in the vehicle's engine, which can affect its performance and fuel efficiency.
     /// </summary>
     [XmlElement("KoeretoejMotorCylinderAntal")]
-    internal string? CylinderCount { get; set; }
+    public string? CylinderCount { get; set; }
 
     /// <summary>
     /// The total distance the vehicle has traveled, measured in kilometers.
     /// </summary>
     [XmlElement("KoeretoejMotorKilometerstand")]
-    internal string? Mileage { get; set; }
+    public string? Mileage { get; set; }
     
     [XmlElement("KoeretoejMotorInnovativTeknik")]
-    internal bool? InnovativeTechnology { get; set; }
+    public bool? InnovativeTechnology { get; set; }
 }
 
 [XmlRoot("KoeretoejDrivmiddelSamlingStruktur")]
-internal class StructuredVehiclePowerSourceCollection
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredVehiclePowerSourceCollection
 {
-    internal required VehiclePowerSourceCollection[] VehiclePowerSourceCollection { get; set; }
+    [XmlElement("KoeretoejDrivmiddelSamling")]
+    public required VehiclePowerSourceCollection[] VehiclePowerSourceCollection { get; set; }
 }
 
 [XmlRoot("KoeretoejDrivmiddelSamling")]
-internal class VehiclePowerSourceCollection
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class VehiclePowerSourceCollection
 {
     [XmlElement("DrivmiddelStruktur")]
-    internal required StructuredPowerSourceType StructuredPowerSourceType { get; set; }
+    public required StructuredPowerSourceType StructuredPowerSourceType { get; set; }
 }
 
 [XmlRoot("DrivmiddelStruktur")]
-internal class StructuredPowerSourceType
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredPowerSourceType
 {
     [XmlElement("DrivkraftTypeStruktur")]
-    internal required PropulsionPowerSourceType PropulsionPowerSourceType { get; set; }
+    public required PropulsionPowerSourceType PropulsionPowerSourceType { get; set; }
     
     [XmlElement("KoeretoejBraendstofStruktur")]
-    internal required StructuredVehicleFuel StructuredVehicleFuel { get; set; }
+    public required StructuredVehicleFuel StructuredVehicleFuel { get; set; }
     
     [XmlElement("KoeretoejMotorDrivmiddelPrimaer")]
-    internal required bool PrimarilyEnginePowered { get; set; }
+    public required bool PrimarilyEnginePowered { get; set; }
 }
 
 [XmlRoot("DrivkraftTypeStruktur")]
-internal class PropulsionPowerSourceType
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class PropulsionPowerSourceType
 {
     [XmlElement("DrivkraftTypeNummer")]
-    internal required PowerSourceType PowerSourceType { get; set; }
+    public string? PowerSourceType { get; set; }
 }
 
 [XmlRoot("KoeretoejBraendstofStruktur")]
-internal class StructuredVehicleFuel
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredVehicleFuel
 {
     [XmlElement("KoeretoejMotorKmPerLiter")]
-    internal required string KmPerLiter { get; set; }
+    public required string KmPerLiter { get; set; }
 }

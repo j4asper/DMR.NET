@@ -1,21 +1,23 @@
-﻿using System.Xml.Serialization;
-using DMR.NET.Models.Deserialization.Enums;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("KoeretoejNormStruktur")]
-internal class StructuredVehicleEmission
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredVehicleEmission
 {
     [XmlElement("NormTypeStruktur")]
-    internal StructuredEmissionType? StructuredEmissionType { get; set; }
+    public StructuredEmissionType? StructuredEmissionType { get; set; }
 }
 
 [XmlRoot("NormTypeStruktur")]
-internal class StructuredEmissionType
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredEmissionType
 {
     [XmlElement("NormTypeNummer")]
-    internal required EmissionStandard EmissionStandard { get; set; }
-    
+    public string? EmissionStandard { get; set; }
+
     [XmlElement("NormTypeNavn")]
-    internal required string EmissionStandardName { get; set; }
+    public string? EmissionStandardName { get; set; }
 }

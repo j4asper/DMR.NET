@@ -1,18 +1,20 @@
-﻿using System.Xml.Serialization;
-using DMR.NET.Models.Deserialization.Enums;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("KoeretoejFarveStruktur")]
-internal class StructuredVehicleColor
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredVehicleColor
 {
     [XmlElement("FarveTypeStruktur")]
-    internal required StructuredColorType StructuredColorType { get; set; }
+    public StructuredColorType? StructuredColorType { get; set; }
 }
 
 [XmlRoot("FarveTypeStruktur")]
-internal class StructuredColorType
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredColorType
 {
     [XmlElement("FarveTypeNummer")]
-    internal required VehicleColor VehicleColor { get; set; }
+    public string? VehicleColor { get; set; }
 }

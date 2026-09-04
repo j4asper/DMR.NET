@@ -1,4 +1,5 @@
-﻿using DMR.NET.Options;
+﻿using System.Text.Json;
+using DMR.NET.Options;
 using DMR.NET.Services;
 using Microsoft.Extensions.Logging;
 using NSubstitute;

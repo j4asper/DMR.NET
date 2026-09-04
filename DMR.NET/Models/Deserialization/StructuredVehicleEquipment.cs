@@ -1,40 +1,45 @@
 ﻿using System.Xml.Serialization;
 using DMR.NET.Models.Deserialization.Enums;
+using System.ComponentModel;
 
 namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("KoeretoejUdstyrSamlingStruktur")]
-internal class StructuredVehicleEquipment
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredVehicleEquipment
 {
     [XmlElement("KoeretoejUdstyrSamling")]
-    internal required VehicleEquipmentCollection VehicleEquipmentCollection { get; set; }
+    public required VehicleEquipmentCollection VehicleEquipmentCollection { get; set; }
 }
 
 [XmlRoot("KoeretoejUdstyrSamling")]
-internal class VehicleEquipmentCollection
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class VehicleEquipmentCollection
 {
-    internal required StructuredEquipment[] StructuredEquipment { get; set; }
+    public required StructuredEquipment[] StructuredEquipment { get; set; }
 }
 
 [XmlRoot("KoeretoejUdstyrStruktur")]
-internal class StructuredEquipment
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredEquipment
 {
     [XmlElement("KoeretoejUdstyrAntal")]
-    internal required int EquipmentCount { get; set; }
+    public required int EquipmentCount { get; set; }
 }
 
 [XmlRoot("KoeretoejUdstyrTypeStruktur")]
-internal class StructuredVehicleEquipmentType
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class StructuredVehicleEquipmentType
 {
     [XmlElement("KoeretoejUdstyrTypeNummer")]
-    internal required VehicleEquipmentType VehicleEquipmentType { get; set; }
+    public required VehicleEquipmentType VehicleEquipmentType { get; set; }
     
     [XmlElement("KoeretoejUdstyrTypeVisesVedSyn")]
-    internal required bool ShownDuringInspection { get; set; }
+    public required bool ShownDuringInspection { get; set; }
 
     [XmlElement("KoeretoejUdstyrTypeVisesVedForespoergsel")]
-    internal required bool ShownUponRequest { get; set; }
+    public required bool ShownUponRequest { get; set; }
     
     [XmlElement("KoeretoejUdstyrTypeVisesVedStandardOprettelse")]
-    internal required bool ShownDuringStandardCreation { get; set; }
+    public required bool ShownDuringStandardCreation { get; set; }
 }

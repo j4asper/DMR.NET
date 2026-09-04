@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Xml;
 using System.Xml.Serialization;
 using DMR.NET.Entities.Models;
+using DMR.NET.Mappers;
 using DMR.NET.Models.Deserialization;
 using DMR.NET.Options;
 using Microsoft.Extensions.Logging;
@@ -72,7 +73,7 @@ public class DmrDeserializerService : IDmrDeserializerService
 
                 if (entry != null)
                 {
-                    yield return entry;
+                    yield return entry.MapToDmrEntry();
                 }
             }
         }
