@@ -1,8 +1,10 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
-namespace DMR.NET.Entities.Models;
+namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("KoeretoejMiljoeOplysningStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredVehicleEnvironmentDetails
 {
     /// <summary>

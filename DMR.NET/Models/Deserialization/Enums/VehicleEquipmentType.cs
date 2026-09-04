@@ -1,7 +1,9 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
-namespace DMR.NET.Entities.Enums;
+namespace DMR.NET.Models.Deserialization.Enums;
 
+[EditorBrowsable(EditorBrowsableState.Never)]
 public enum VehicleEquipmentType
 {
     Unknown,

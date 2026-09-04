@@ -1,8 +1,10 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
-namespace DMR.NET.Entities.Models;
+namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("KoeretoejBetegnelseStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredVehicleDescription
 {
     /// <summary>
@@ -15,10 +17,11 @@ public class StructuredVehicleDescription
     public required Model Model { get; set; }
     
     [XmlElement("Variant")]
-    public required Variant Variant { get; set; }
+    public Variant? Variant { get; set; }
 }
 
 [XmlRoot("Model")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class Model
 {
     /// <summary>
@@ -29,6 +32,7 @@ public class Model
 }
 
 [XmlRoot("Variant")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class Variant
 {
     /// <summary>

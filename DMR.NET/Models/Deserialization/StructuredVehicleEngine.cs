@@ -1,9 +1,10 @@
-﻿using System.Xml.Serialization;
-using DMR.NET.Entities.Enums;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
-namespace DMR.NET.Entities.Models;
+namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("KoeretoejMotorStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredVehicleEngine
 {
     [XmlElement("KoeretoejDrivmiddelSamlingStruktur")]
@@ -13,25 +14,28 @@ public class StructuredVehicleEngine
     /// The number of cylinders in the vehicle's engine, which can affect its performance and fuel efficiency.
     /// </summary>
     [XmlElement("KoeretoejMotorCylinderAntal")]
-    public int? CylinderCount { get; set; }
+    public string? CylinderCount { get; set; }
 
     /// <summary>
     /// The total distance the vehicle has traveled, measured in kilometers.
     /// </summary>
     [XmlElement("KoeretoejMotorKilometerstand")]
-    public int? Mileage { get; set; }
+    public string? Mileage { get; set; }
     
     [XmlElement("KoeretoejMotorInnovativTeknik")]
     public bool? InnovativeTechnology { get; set; }
 }
 
 [XmlRoot("KoeretoejDrivmiddelSamlingStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredVehiclePowerSourceCollection
 {
+    [XmlElement("KoeretoejDrivmiddelSamling")]
     public required VehiclePowerSourceCollection[] VehiclePowerSourceCollection { get; set; }
 }
 
 [XmlRoot("KoeretoejDrivmiddelSamling")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class VehiclePowerSourceCollection
 {
     [XmlElement("DrivmiddelStruktur")]
@@ -39,6 +43,7 @@ public class VehiclePowerSourceCollection
 }
 
 [XmlRoot("DrivmiddelStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredPowerSourceType
 {
     [XmlElement("DrivkraftTypeStruktur")]
@@ -52,15 +57,17 @@ public class StructuredPowerSourceType
 }
 
 [XmlRoot("DrivkraftTypeStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class PropulsionPowerSourceType
 {
     [XmlElement("DrivkraftTypeNummer")]
-    public required PowerSourceType PowerSourceType { get; set; }
+    public string? PowerSourceType { get; set; }
 }
 
 [XmlRoot("KoeretoejBraendstofStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredVehicleFuel
 {
     [XmlElement("KoeretoejMotorKmPerLiter")]
-    public required double KmPerLiter { get; set; }
+    public required string KmPerLiter { get; set; }
 }

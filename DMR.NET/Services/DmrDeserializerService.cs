@@ -2,8 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Xml;
 using System.Xml.Serialization;
-using DMR.NET.Constants;
 using DMR.NET.Entities.Models;
+using DMR.NET.Mappers;
+using DMR.NET.Models.Deserialization;
 using DMR.NET.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -14,7 +15,7 @@ public class DmrDeserializerService : IDmrDeserializerService
 {
     private readonly ILogger<DmrDeserializerService> _logger;
     private readonly IDmrFtpService _dmrFtpService;
-    private readonly string _destinationPath;
+    private readonly DmrFtpOptions _dmrFtpOptions;
 
     public bool DeserializeInProgress { get; private set; }
     
@@ -22,7 +23,7 @@ public class DmrDeserializerService : IDmrDeserializerService
     {
         _dmrFtpService = dmrFtpService;
         _logger = logger;
-        _destinationPath = options.Value.DestinationPath;
+        _dmrFtpOptions = options.Value;
     }
 
     public async IAsyncEnumerable<DmrEntry> DeserializeDmrEntriesAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
@@ -32,56 +33,53 @@ public class DmrDeserializerService : IDmrDeserializerService
 
         var latestDmrDatabaseName = await _dmrFtpService.GetLatestDmrDatabaseAsync(cancellationToken);
         
-        if (!File.Exists(_destinationPath + latestDmrDatabaseName))
+        if (!File.Exists(_dmrFtpOptions.DestinationPath + latestDmrDatabaseName))
             throw new FileNotFoundException("Latest dmr database was not found locally.");
+
+        await using var zipArchive = await ZipFile.OpenReadAsync(_dmrFtpOptions.DestinationPath + latestDmrDatabaseName, cancellationToken);
         
-        using var zipArchive = ZipFile.OpenRead(_destinationPath + latestDmrDatabaseName);
-        
-        var xmlEntry = zipArchive.GetEntry(FileNameConstants.InternalDmrXmlFile);
+        var xmlEntry = zipArchive.GetEntry(_dmrFtpOptions.InternalXmlFileName);
 
         if (xmlEntry is null)
-            throw new OperationCanceledException($"Unable to load embedded {FileNameConstants.InternalDmrXmlFile} file.");
+            throw new OperationCanceledException($"Unable to load embedded {_dmrFtpOptions.InternalXmlFileName} file.");
 
         DeserializeInProgress = true;
         
-        await using var xmlStream = xmlEntry.Open();
-
-        var settings = new XmlReaderSettings
+        try
         {
-            ConformanceLevel = ConformanceLevel.Document,
-            IgnoreWhitespace = true,
-            Async = true
-        };
+            await using var rawXmlStream = await xmlEntry.OpenAsync(cancellationToken);
         
-        using var reader = XmlReader.Create(xmlStream, settings);
+            using var bufferedStream = new BufferedStream(rawXmlStream, 128 * 1024);
 
-        var serializer = new XmlSerializer(typeof(DmrEntry));
+            var settings = new XmlReaderSettings
+            {
+                ConformanceLevel = ConformanceLevel.Document,
+                IgnoreWhitespace = true,
+                Async = false
+            };
         
-        while (await reader.ReadAsync())
-        {
-            if (cancellationToken.IsCancellationRequested)
-                break;
+            using var reader = XmlReader.Create(bufferedStream, settings);
+            var serializer = new XmlSerializer(typeof(XmlDmrEntry));
             
-            if (reader.LocalName != "Statistik")
-                continue;
-
-            DmrEntry? entry = null;
-
-            try
+            while (reader.Read())
             {
-                entry = (DmrEntry?)serializer.Deserialize(reader);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Unable to deserialize DMR entry. Skipping entry...");
-            }
+                if (cancellationToken.IsCancellationRequested)
+                    break;
+            
+                if (reader.NodeType != XmlNodeType.Element || reader.LocalName != "Statistik")
+                    continue;
+                
+                var entry = (XmlDmrEntry?)serializer.Deserialize(reader);
 
-            if (entry == null)
-                continue;
-
-            yield return entry;
+                if (entry != null)
+                {
+                    yield return entry.MapToDmrEntry();
+                }
+            }
         }
-        
-        DeserializeInProgress = false;
+        finally
+        {
+            DeserializeInProgress = false;
+        }
     }
 }

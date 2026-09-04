@@ -1,9 +1,11 @@
 ﻿using System.Xml.Serialization;
-using DMR.NET.Entities.Enums;
+using DMR.NET.Models.Deserialization.Enums;
+using System.ComponentModel;
 
-namespace DMR.NET.Entities.Models;
+namespace DMR.NET.Models.Deserialization;
 
 [XmlRoot("KoeretoejUdstyrSamlingStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredVehicleEquipment
 {
     [XmlElement("KoeretoejUdstyrSamling")]
@@ -11,12 +13,14 @@ public class StructuredVehicleEquipment
 }
 
 [XmlRoot("KoeretoejUdstyrSamling")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class VehicleEquipmentCollection
 {
     public required StructuredEquipment[] StructuredEquipment { get; set; }
 }
 
 [XmlRoot("KoeretoejUdstyrStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredEquipment
 {
     [XmlElement("KoeretoejUdstyrAntal")]
@@ -24,6 +28,7 @@ public class StructuredEquipment
 }
 
 [XmlRoot("KoeretoejUdstyrTypeStruktur")]
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class StructuredVehicleEquipmentType
 {
     [XmlElement("KoeretoejUdstyrTypeNummer")]
